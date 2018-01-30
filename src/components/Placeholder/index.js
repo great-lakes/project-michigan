@@ -1,2 +1,2 @@
-import Placeholder from './Placeholder'
-export default Placeholder
+import PlaceholderContainer from './PlaceholderContainer'
+export default PlaceholderContainer

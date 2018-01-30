@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
-import TabMenuContainer from '../TabMenu/TabMenuContainer'
-import PlaceholderContainer from '../Placeholder/PlaceholderContainer'
+import TabMenu from '../TabMenu/TabMenu'
+import Placeholder from '../Placeholder/Placeholder'
 import './App.css'
 
 class App extends Component {
   render () {
     return (
       <div className='App'>
-        <TabMenuContainer />
+        <TabMenu />
         <Switch>
-          <Route path='/questions' component={PlaceholderContainer} />
-          <Route path='/projects' component={PlaceholderContainer} />
-          <Route path='/azureCodes' component={PlaceholderContainer} />
-          <Route path='/mentors' component={PlaceholderContainer} />
+          <Route path='/questions' component={Placeholder} />
+          <Route path='/projects' component={Placeholder} />
+          <Route path='/azureCodes' component={Placeholder} />
+          <Route path='/mentors' component={Placeholder} />
         </Switch>
       </div>
     )

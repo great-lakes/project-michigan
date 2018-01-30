@@ -1,2 +1,2 @@
-import TabMenu from './TabMenu.js'
-export default TabMenu
+import TabMenuContainer from './TabMenuContainer'
+export default TabMenuContainer
