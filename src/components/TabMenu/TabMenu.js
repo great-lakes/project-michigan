@@ -6,7 +6,7 @@ const populateTab = (title, route, currentRouterPath, dispatch) => {
   if (currentRouterPath === ('/' + route)) {
     return (
       <button className='TabMenu-tabs selected' onClick={dispatch(route)}>
-        <Link to={('/' + route)}>{title}</Link>
+        <Link to={('/' + route + '/hackillinous')}>{title}</Link>
       </button>
     )
   }

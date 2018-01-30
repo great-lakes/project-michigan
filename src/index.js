@@ -17,14 +17,9 @@ const history = createHistory()
 // Build the middleware for intercepting and dispatching navigation actions
 const middleware = routerMiddleware(history)
 
-const defaultState = {
-  currentView: 'questions'
-}
-
 const store = createStore(
   combineReducers({
     ...rootReducer,
-    ...defaultState,
     router: routerReducer
   }),
   applyMiddleware(middleware)
