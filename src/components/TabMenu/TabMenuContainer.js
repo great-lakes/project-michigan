@@ -1,15 +1,17 @@
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import TabMenu from './TabMenu'
 
 const mapStateToProps = (state) => {
   return {
-    currentView: state.currentView
+    currentRouterPath: state.router.location.pathname
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  changeCurrentViewDispatch: (view) => () => {
-    dispatch({ type: 'CHANGE_VIEW', targetView: view })
+  updateRouteDispatch: (view) => () => {
+    // update route
+    dispatch(push('/' + view))
   }
 })
 

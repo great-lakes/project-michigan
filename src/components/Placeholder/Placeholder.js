@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
 class Placeholder extends Component {
-  constructor (props) {
-    super()
-  }
   render () {
+    const { currentRouterPath } = this.props
     return (
       <div>
-        <h3>View: {this.props.name}</h3>
+        <h3>View: {currentRouterPath}</h3>
       </div>
     )
   }

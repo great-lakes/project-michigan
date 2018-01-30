@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './TabMenu.css'
 
-const populateTab = (title, route, currentView, dispatch) => {
-  if (currentView === route) {
+const populateTab = (title, route, currentRouterPath, dispatch) => {
+  if (currentRouterPath === ('/' + route)) {
     return (
       <button className='TabMenu-tabs selected' onClick={dispatch(route)}>
         <Link to={('/' + route)}>{title}</Link>
@@ -22,16 +22,15 @@ const populateTab = (title, route, currentView, dispatch) => {
  */
 class TabMenu extends Component {
   render () {
-    const { currentView, changeCurrentViewDispatch } = this.props
+    const { currentRouterPath, updateRouteDispatch } = this.props
     return (
       <div className='TabMenu-container'>
         <div>
-          {populateTab('Questions', 'questions', currentView, changeCurrentViewDispatch)}
-          {populateTab('Projects', 'projects', currentView, changeCurrentViewDispatch)}
-          {populateTab('Azure Codes', 'azureCodes', currentView, changeCurrentViewDispatch)}
-          {populateTab('Mentor Info', 'mentors', currentView, changeCurrentViewDispatch)}
+          {populateTab('Questions', 'questions', currentRouterPath, updateRouteDispatch)}
+          {populateTab('Projects', 'projects', currentRouterPath, updateRouteDispatch)}
+          {populateTab('Azure Codes', 'azureCodes', currentRouterPath, updateRouteDispatch)}
+          {populateTab('Mentors', 'mentors', currentRouterPath, updateRouteDispatch)}
         </div>
-        <p>Current View is: {currentView}</p>
       </div>
     )
   }
