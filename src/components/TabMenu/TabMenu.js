@@ -5,14 +5,14 @@ import './TabMenu.css'
 const populateTab = (title, route, currentRouterPath, dispatch) => {
   if (currentRouterPath === ('/' + route)) {
     return (
-      <button className='TabMenu-tabs selected' onClick={dispatch(route)}>
-        <Link to={('/' + route)}>{title}</Link>
+      <button className='TabMenu-button selected' onClick={dispatch(route)}>
+        <Link className='TabMenu-link' to={('/' + route)}>{title}</Link>
       </button>
     )
   }
   return (
-    <button className='TabMenu-tabs unselected' onClick={dispatch(route)}>
-      <Link to={('/' + route)}>{title}</Link>
+    <button className='TabMenu-button unselected' onClick={dispatch(route)}>
+      <Link className='TabMenu-link' to={('/' + route)}>{title}</Link>
     </button>
   )
 }
