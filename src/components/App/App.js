@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import TabMenuContainer from '../TabMenu/TabMenuContainer'
+import Placeholder from '../Placeholder'
 import './App.css'
 
 class App extends Component {
@@ -11,6 +14,21 @@ class App extends Component {
         <p className='App-intro'>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <TabMenuContainer />
+        <Switch>
+          <Route path='/questions' render={(props) => (
+            <Placeholder name='Questions' />
+          )} />
+          <Route path='/projects' render={(props) => (
+            <Placeholder name='Projects' />
+          )} />
+          <Route path='/azureCodes' render={(props) => (
+            <Placeholder name='Azure Codes' />
+          )} />
+          <Route path='/mentors' render={(props) => (
+            <Placeholder name='Mentors' />
+          )} />
+        </Switch>
       </div>
     )
   }
