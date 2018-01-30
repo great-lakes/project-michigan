@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
-import TabMenu from '../TabMenu/TabMenu'
-import Placeholder from '../Placeholder/Placeholder'
+import TabMenu from '../TabMenu'
+import Placeholder from '../Placeholder'
 import './App.css'
 
 class App extends Component {
