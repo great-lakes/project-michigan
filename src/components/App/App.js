@@ -10,7 +10,6 @@ class App extends Component {
       <div className='App'>
         <TabMenuContainer />
         <Switch>
-          <Route path='/' component={PlaceholderContainer} />
           <Route path='/questions' component={PlaceholderContainer} />
           <Route path='/projects' component={PlaceholderContainer} />
           <Route path='/azureCodes' component={PlaceholderContainer} />

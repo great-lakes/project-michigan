@@ -6,7 +6,7 @@ const populateTab = (title, route, currentRouterPath, dispatch) => {
   if (currentRouterPath === ('/' + route)) {
     return (
       <button className='TabMenu-tabs selected' onClick={dispatch(route)}>
-        <Link to={('/' + route + '/hackillinous')}>{title}</Link>
+        <Link to={('/' + route)}>{title}</Link>
       </button>
     )
   }
@@ -25,12 +25,10 @@ class TabMenu extends Component {
     const { currentRouterPath, updateRouteDispatch } = this.props
     return (
       <div className='TabMenu-container'>
-        <div>
-          {populateTab('Questions', 'questions', currentRouterPath, updateRouteDispatch)}
-          {populateTab('Projects', 'projects', currentRouterPath, updateRouteDispatch)}
-          {populateTab('Azure Codes', 'azureCodes', currentRouterPath, updateRouteDispatch)}
-          {populateTab('Mentors', 'mentors', currentRouterPath, updateRouteDispatch)}
-        </div>
+        {populateTab('Questions', 'questions', currentRouterPath, updateRouteDispatch)}
+        {populateTab('Projects', 'projects', currentRouterPath, updateRouteDispatch)}
+        {populateTab('Azure Codes', 'azureCodes', currentRouterPath, updateRouteDispatch)}
+        {populateTab('Mentors', 'mentors', currentRouterPath, updateRouteDispatch)}
       </div>
     )
   }
