@@ -7,9 +7,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-})
-
-const PlaceholderContainer = connect(mapStateToProps, mapDispatchToProps)(Placeholder)
+const PlaceholderContainer = connect(mapStateToProps, null)(Placeholder)
 
 export default PlaceholderContainer
