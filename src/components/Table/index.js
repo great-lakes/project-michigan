@@ -1,2 +1,2 @@
-import Table from './Table'
-export default Table
+import TableContainer from './TableContainer'
+export default TableContainer
