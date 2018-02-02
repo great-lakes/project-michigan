@@ -1,0 +1,27 @@
+.TabMenu-container {
+  text-align: left;
+}
+
+.TabMenu-button {
+  text-align: center;
+  display: inline-flex;
+  flex-direction: row;
+  padding: 5px 25px;
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.TabMenu-button.selected {
+  background-color: rgb(53, 201, 241)
+}
+
+.TabMenu-button.unselected {
+  background-color: powderblue
+}
+
+.TabMenu-link {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
