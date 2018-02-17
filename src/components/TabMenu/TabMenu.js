@@ -29,6 +29,7 @@ class TabMenu extends Component {
         {populateTab('Projects', 'projects', currentRouterPath, updateRouteDispatch)}
         {populateTab('Azure Codes', 'azureCodes', currentRouterPath, updateRouteDispatch)}
         {populateTab('Mentors', 'mentors', currentRouterPath, updateRouteDispatch)}
+        {populateTab('Config', 'config', currentRouterPath, updateRouteDispatch)}
       </div>
     )
   }
