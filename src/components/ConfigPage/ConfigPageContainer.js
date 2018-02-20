@@ -1,15 +1,20 @@
 import { connect } from 'react-redux'
 import ConfigPage from './ConfigPage'
-import {setAccessToken} from '../../actions/config'
+import {setAccessToken, setApiEndpoint} from '../../actions/config'
 
 const mapStateToProps = (state) => ({
-  accessToken: state.accessToken
+  accessToken: state.api.accessToken,
+  endpoint: state.api.endpoint
 })
 
 const mapDispatchToProps = (dispatch) => ({
   setAccessToken: (e) => {
     const token = e.target.value
     dispatch(setAccessToken(token))
+  },
+  setApiEndpoint: (e) => {
+    const endpoint = e.target.value
+    dispatch(setApiEndpoint(endpoint))
   }
 })
 
