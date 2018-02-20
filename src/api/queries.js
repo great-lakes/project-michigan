@@ -1,3 +1,24 @@
+export const assignMentorToInquiry =
+`
+mutation assignMentorToInquiry($inquiryId: ID!, $mentorId: ID!){
+  setInquiryMentor(inquiryId: $inquiryId, mentorId: $mentorId) {
+    id
+    question
+    is_resolved
+    created_at
+    student{
+      id
+      project {
+        id
+      }
+    }
+    mentor{
+      id
+    }
+  }
+}
+`
+
 export const initialHackathonData =
 `
 query initialHackathonData($hackathonId: ID!){
