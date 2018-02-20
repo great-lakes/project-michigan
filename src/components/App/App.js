@@ -4,6 +4,7 @@ import Placeholder from '../Placeholder'
 import TabMenu from '../TabMenu'
 import './App.css'
 import Table from '../Table'
+import ConfigPage from '../ConfigPage'
 
 class App extends Component {
   render () {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route path='/projects' component={Placeholder} />
           <Route path='/azureCodes' component={Placeholder} />
           <Route path='/mentors' component={Placeholder} />
+          <Route path='/config' component={ConfigPage} />
         </Switch>
       </div>
     )
