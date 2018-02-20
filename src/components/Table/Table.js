@@ -5,17 +5,6 @@ import 'react-table/react-table.css'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
-const data = [{ // fake data for example. will delete
-  resolved: false,
-  mentor: null,
-  mentorStatus: false,
-  skill: 'IoT',
-  question: 'how do i make an event hub?',
-  student: 'Billy Bob',
-  project: 'IoT Cloud',
-  contact: 'bb@live.com'
-}]
-
 const UNASSIGNED = 'unassigned'
 const ASSIGNED = 'assigned'
 const RESOLVED = 'resolved'
@@ -26,7 +15,7 @@ function determineStatus (mentorStatus, resolvedStatus) {
   return UNASSIGNED
 }
 
-function chooseStatusColor (status) {
+function getStatusColor (status) {
   if (status === RESOLVED) return { color: '#57d500' }
   if (status === ASSIGNED) return { color: '#fffe00' }
   return { color: '#ff0000' }
@@ -53,6 +42,13 @@ class Table extends Component {
   //   )
   // }
   render () {
+    const {questions, mentors} = this.props
+    const mentorOptions = mentors.map((mentor) => {
+      return {
+        label: mentor.first_name + ' ' + mentor.last_name,
+        value: mentor.id
+      }
+    })
     const columns = [{ // change to button. on click: if red do nothing. if yellow turn green
       Header: 'Status',
       id: 'question-status',
@@ -60,7 +56,7 @@ class Table extends Component {
       Cell: d => {
         const status = determineStatus(d.value, d.original.resolved) // TODO: disable button on red & green
         return (<button onClick={(e) => this.handleClick(e, d.value, d.original.resolved)} title={status}>
-          <span style={chooseStatusColor(status)}>
+          <span style={getStatusColor(status)}>
             &#x25cf;
           </span>
         </button>)
@@ -72,12 +68,9 @@ class Table extends Component {
       Cell: d => {
         return (<Select
           name='mentor-name'
-          value='one'
+          value={d.original.mentor}
           onChange={this.handleChange}
-          options={[
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' }
-          ]}
+          options={mentorOptions}
       />)
       } // TODO: change based on dropdown function
     }, {
@@ -111,7 +104,7 @@ class Table extends Component {
             }
           }
         }}
-        data={data}
+        data={questions}
         columns={columns}
         />
     )
