@@ -15,8 +15,8 @@ export default (action$, store) =>
             Observable.of(setSkills(data.entities.skill)),
             Observable.of(setMentors(data.entities.mentor)),
             Observable.of(setStudents(data.entities.student)),
+            Observable.of(setProjects(data.entities.project)),
             Observable.of(setInquiries(data.entities.inquiry)),
-            Observable.of(setProjects(data.entities.projects))
           )
         })
     })
