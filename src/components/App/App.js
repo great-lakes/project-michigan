@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router'
 import Placeholder from '../Placeholder'
 import TabMenu from '../TabMenu'
 import './App.css'
-import Table from '../Table'
 import ConfigPage from '../ConfigPage'
+import QuestionsPage from '../QuestionsPage'
 
 class App extends Component {
   render () {
@@ -12,7 +12,7 @@ class App extends Component {
       <div className='App'>
         <TabMenu />
         <Switch>
-          <Route path='/questions' component={Table} />
+          <Route path='/questions' component={QuestionsPage} />
           <Route path='/projects' component={Placeholder} />
           <Route path='/azureCodes' component={Placeholder} />
           <Route path='/mentors' component={Placeholder} />
