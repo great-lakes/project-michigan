@@ -4,6 +4,7 @@ export const SET_HACKATHON = 'SET_HACKATHON'
 export const SET_STUDENTS = 'SET_STUDENTS'
 export const SET_INQUIRIES = 'SET_INQUIRIES'
 export const SET_PROJECTS = 'SET_PROJECTS'
+export const SET_INQUIRY = 'SET_INQUIRY'
 // Add Action String Constant Here (do not delete this line)
 
 export const setSkills = (data) => ({
@@ -33,6 +34,11 @@ export const setInquiries = (data) => ({
 
 export const setProjects = (data) => ({
   type: SET_PROJECTS,
+  data
+})
+
+export const setInquiry = (data) => ({
+  type: SET_INQUIRY,
   data
 })
 

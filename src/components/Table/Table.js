@@ -42,7 +42,7 @@ class Table extends Component {
   //   )
   // }
   render () {
-    const {questions, mentors} = this.props
+    const {questions, mentors, setMentor} = this.props
     const mentorOptions = mentors.map((mentor) => {
       return {
         label: mentor.first_name + ' ' + mentor.last_name,
@@ -69,7 +69,7 @@ class Table extends Component {
         return (<Select
           name='mentor-name'
           value={d.original.mentor}
-          onChange={this.handleChange}
+          onChange={(value) => { setMentor(value, d.original.id) }}
           options={mentorOptions}
       />)
       } // TODO: change based on dropdown function

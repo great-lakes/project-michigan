@@ -19,3 +19,22 @@ export const queryInitialHackathonData = (apiConfig) => {
 
   return Observable.from(requestPromise)
 }
+
+export const assignMentorToInquiry = (apiConfig, inquiryId, mentorId) => {
+  const {assignMentorToInquiry} = queries
+  const variables = {
+    inquiryId,
+    mentorId
+  }
+  const requestPromise = queryGraphql(apiConfig, assignMentorToInquiry, variables)
+    .then(result => {
+      console.log(result.errors)
+      return result.data
+    })
+    .then(data => {
+      console.log('data in client', data)
+      return data.setInquiryMentor
+    })
+
+  return Observable.from(requestPromise)
+}
