@@ -20,6 +20,13 @@ import getInitialState from './store/getInitialState'
 import { createEpicMiddleware } from 'redux-observable'
 import rootEpic from './epics'
 import {appStart} from './actions/app'
+
+// socket io
+import io from 'socket.io-client'
+
+// action creator for initial load
+import {fetchInitialHackathonDataStart} from './actions/fetchers'
+
 const epicMiddleware = createEpicMiddleware(rootEpic)
 
 // Create a history of your choosing (we're using a browser history in this case)
@@ -36,6 +43,30 @@ const store = createStore(
 )
 
 store.dispatch(appStart())
+
+if (store.getState().api.enableRealtime) {
+  const {endpoint} = store.getState().api
+
+  const socket = io(endpoint)
+  socket.on('connect', () => {
+    console.log('connected to websocket server')
+  })
+
+  socket.on('inquiry-created', (data) => {
+    console.log('inquiry-created...', data)
+    store.dispatch(fetchInitialHackathonDataStart())
+  })
+
+  socket.on('inquiry-updated', (data) => {
+    console.log('inquiry-updated...', data)
+    store.dispatch(fetchInitialHackathonDataStart())
+  })
+
+  socket.on('azurecode-updated', (data) => {
+    console.log('azurecode-updated...', data)
+    store.dispatch(fetchInitialHackathonDataStart())
+  })
+}
 
 ReactDOM.render((
   <Provider store={store}>

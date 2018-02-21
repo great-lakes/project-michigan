@@ -15,3 +15,11 @@ export const setApiEndpoint = (url) => {
     data: url
   }
 }
+
+export const setEnableRealtime = (realtime) => {
+  localStorage.setItem('hannaRealtime', realtime)
+  return {
+    type: 'SET_ENABLE_REALTIME',
+    data: realtime
+  }
+}

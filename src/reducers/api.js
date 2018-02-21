@@ -1,5 +1,11 @@
 export default (prevState = '', action) => {
   // Add your action conditionals here
+  if (action.type === 'SET_ENABLE_REALTIME') {
+    return {
+      ...prevState,
+      enableRealtime: action.data
+    }
+  }
   if (action.type === 'SET_ACCESS_TOKEN') {
     return {
       ...prevState,

@@ -3,7 +3,7 @@
 export const queryGraphql = (apiConfig, query, variables) => {
   const {endpoint, accessToken} = apiConfig
 
-  return fetch(`${endpoint}?access_token=${accessToken}`, {
+  return fetch(`${endpoint}/graphql?access_token=${accessToken}`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'

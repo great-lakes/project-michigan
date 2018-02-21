@@ -1,4 +1,4 @@
-import {FETCH_INITIAL_HACKATHON_DATA_START, fetchInitialHackathonDataSuccess} from '../actions/fetchers'
+import {FETCH_INITIAL_HACKATHON_DATA_START, fetchInitialHackathonDataSuccess, fetchInitialHackathonDataFail} from '../actions/fetchers'
 import {queryInitialHackathonData} from '../api/client'
 import { Observable } from 'rxjs/Observable'
 import {setHackathon, setSkills, setMentors, setStudents, setInquiries, setProjects, setAzureCodes} from '../actions/setters'
@@ -9,6 +9,9 @@ export default (action$, store) =>
       const {api} = store.getState()
       return queryInitialHackathonData(api)
         .flatMap(data => {
+          if (!data) {
+            return Observable.of(fetchInitialHackathonDataFail())
+          }
           return Observable.concat(
             Observable.of(fetchInitialHackathonDataSuccess()),
             Observable.of(setHackathon(data.entities.hackathon[data.result])),

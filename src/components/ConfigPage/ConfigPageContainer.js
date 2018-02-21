@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import ConfigPage from './ConfigPage'
-import {setAccessToken, setApiEndpoint} from '../../actions/config'
+import {setAccessToken, setApiEndpoint, setEnableRealtime} from '../../actions/config'
 
 const mapStateToProps = (state) => ({
   accessToken: state.api.accessToken,
-  endpoint: state.api.endpoint
+  endpoint: state.api.endpoint,
+  enableRealtime: state.api.enableRealtime
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -15,6 +16,10 @@ const mapDispatchToProps = (dispatch) => ({
   setApiEndpoint: (e) => {
     const endpoint = e.target.value
     dispatch(setApiEndpoint(endpoint))
+  },
+  setEnableRealtime: (e) => {
+    const enableRealtime = e.target.value
+    dispatch(setEnableRealtime(enableRealtime))
   }
 })
 

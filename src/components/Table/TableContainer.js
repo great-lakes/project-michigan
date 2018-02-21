@@ -36,6 +36,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   setMentor: function (mentorId, inquiryId) {
+    if (!mentorId) {
+      return
+    }
     dispatch(fetchSetInquiryMentorStart({mentorId: mentorId.value, inquiryId}))
   },
   setStatus: function (e, currentStatus, inquiryId) {

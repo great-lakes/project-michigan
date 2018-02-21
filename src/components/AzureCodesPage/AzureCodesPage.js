@@ -18,7 +18,7 @@ const AzureCodesPage = ({ className, azureCodes, takeAzureCode }) => (
           Cell: d => {
             const taken = d.original.is_taken
             if (!taken) {
-              return <input value={d.value} type='password' />
+              return <input value={d.value} type='password' readOnly />
             }
             return <PasswordMask value={d.value} style={{font: 'monospace'}} />
           }

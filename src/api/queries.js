@@ -17,6 +17,25 @@ mutation setInquiryStatus($inquiryId: ID!, $status: InquiryStatus!) {
 }
 `
 
+// export const getInquiryById = // This needs to be scraped when it is a multi hackathon dashboard :(
+// `
+// query getInquiryById($inquiryId: ID!) {
+//   inquiry(id:$inquiryId) {
+//     id
+//     question
+//     is_resolved
+//     mentor_notes
+//     created_at
+//     student{
+//       id
+//     }
+//     mentor{
+//       id
+//     }
+//   }
+// }
+// `
+
 export const assignMentorToInquiry =
 `
 mutation assignMentorToInquiry($inquiryId: ID!, $mentorId: ID!){

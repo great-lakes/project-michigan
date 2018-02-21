@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styles from './ConfigPage.css'
 
-const ConfigPage = ({ className, setApiEndpoint, endpoint, setAccessToken, accessToken }) => (
+const ConfigPage = ({ className, setApiEndpoint, endpoint, setAccessToken, accessToken, setEnableRealtime, enableRealtime }) => (
   <div className={classNames([styles.base, className])}>
+    <label htmlFor='access-token-input'>Enable Realtime</label>
+    <input id='access-token-input' type='text' onChange={setEnableRealtime} value={enableRealtime} />
+    <br />
     <label htmlFor='access-token-input'>API Endpoint</label>
     <input id='access-token-input' type='text' onChange={setApiEndpoint} value={endpoint} />
     <br />

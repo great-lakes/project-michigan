@@ -18,7 +18,8 @@
     "react-table": "^6.7.6",
     "redux": "^3.7.2",
     "redux-observable": "^0.18.0",
-    "rxjs": "^5.5.6"
+    "rxjs": "^5.5.6",
+    "socket.io-client": "^2.0.4"
   },
   "scripts": {
     "generate": "plopper",
