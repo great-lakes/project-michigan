@@ -42,7 +42,7 @@ class Table extends Component {
   //   )
   // }
   render () {
-    const {questions, mentors, setMentor} = this.props
+    const {questions, mentors, setMentor, setStatus} = this.props
     const mentorOptions = mentors.map((mentor) => {
       return {
         label: mentor.first_name + ' ' + mentor.last_name,
@@ -55,7 +55,7 @@ class Table extends Component {
       accessor: d => d.mentorStatus,
       Cell: d => {
         const status = determineStatus(d.value, d.original.resolved) // TODO: disable button on red & green
-        return (<button onClick={(e) => this.handleClick(e, d.value, d.original.resolved)} title={status}>
+        return (<button disabled={(status === UNASSIGNED)} onClick={(e) => setStatus(e, status, d.original.id)} title={status}>
           <span style={getStatusColor(status)}>
             &#x25cf;
           </span>

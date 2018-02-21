@@ -4,6 +4,8 @@ export const FETCH_SET_INQUIRY_MENTOR_START = 'FETCH_SET_INQUIRY_MENTOR_START'
 export const FETCH_SET_INQUIRY_MENTOR_SUCCESS = 'FETCH_SET_INQUIRY_MENTOR_SUCCESS'
 export const FETCH_TAKE_AZURE_CODE_START = 'FETCH_TAKE_AZURE_CODE_START'
 export const FETCH_TAKE_AZURE_CODE_SUCCESS = 'FETCH_TAKE_AZURE_CODE_SUCCESS'
+export const FETCH_SET_INQUIRY_STATUS_START = 'FETCH_SET_INQUIRY_STATUS_START'
+export const FETCH_SET_INQUIRY_STATUS_SUCCESS = 'FETCH_SET_INQUIRY_STATUS_SUCCESS'
 // Add Action String Constant Here (do not delete this line)
 
 export const fetchInitialHackathonDataStart = (data) => ({
@@ -33,6 +35,16 @@ export const fetchTakeAzureCodeStart = (data) => ({
 
 export const fetchTakeAzureCodeSuccess = (data) => ({
   type: FETCH_TAKE_AZURE_CODE_SUCCESS,
+  data
+})
+
+export const fetchSetInquiryStatusStart = (data) => ({
+  type: FETCH_SET_INQUIRY_STATUS_START,
+  data
+})
+
+export const fetchSetInquiryStatusSuccess = (data) => ({
+  type: FETCH_SET_INQUIRY_STATUS_SUCCESS,
   data
 })
 

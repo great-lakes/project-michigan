@@ -20,6 +20,29 @@ export const queryInitialHackathonData = (apiConfig) => {
   return Observable.from(requestPromise)
 }
 
+export const setResolveStatusToInquiry = (apiConfig, inquiryId, status) => {
+  const {setInquiryStatus} = queries
+  const variables = {
+    inquiryId,
+    status
+  }
+  const requestPromise = queryGraphql(apiConfig, setInquiryStatus, variables)
+    .then(result => {
+      console.error(result.errors)
+      return result.data
+    })
+    .then(data => {
+      const inquiry = data.setInquiryStatus
+      return {
+        ...inquiry,
+        mentor: inquiry.mentor.id || null,
+        student: inquiry.student.id || null
+      }
+    })
+
+  return Observable.from(requestPromise)
+}
+
 export const assignMentorToInquiry = (apiConfig, inquiryId, mentorId) => {
   const {assignMentorToInquiry} = queries
   const variables = {

@@ -1,3 +1,22 @@
+export const setInquiryStatus =
+`
+mutation setInquiryStatus($inquiryId: ID!, $status: InquiryStatus!) {
+  setInquiryStatus(id: $inquiryId, status: $status) {
+    id
+    question
+    is_resolved
+    mentor_notes
+    created_at
+    student{
+      id
+    }
+    mentor{
+      id
+    }
+  }
+}
+`
+
 export const assignMentorToInquiry =
 `
 mutation assignMentorToInquiry($inquiryId: ID!, $mentorId: ID!){
@@ -6,6 +25,7 @@ mutation assignMentorToInquiry($inquiryId: ID!, $mentorId: ID!){
     question
     is_resolved
     created_at
+    mentor_notes
     student{
       id
     }
@@ -70,6 +90,7 @@ query initialHackathonData($hackathonId: ID!){
       question
       is_resolved
       created_at
+      mentor_notes
       student{
         id
         name

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Table from './Table'
-import {fetchSetInquiryMentorStart} from '../../actions/fetchers'
+import {fetchSetInquiryMentorStart, fetchSetInquiryStatusStart} from '../../actions/fetchers'
 
 const mapStateToProps = (state) => {
   const inquiryKeys = state.hackathon.inquiries || []
@@ -37,6 +37,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   setMentor: function (mentorId, inquiryId) {
     dispatch(fetchSetInquiryMentorStart({mentorId: mentorId.value, inquiryId}))
+  },
+  setStatus: function (e, currentStatus, inquiryId) {
+    let status = 'RESOLVED'
+    if (currentStatus === 'resolved') {
+      status = 'UNRESOLVED'
+    }
+    dispatch(fetchSetInquiryStatusStart({inquiryId, status}))
   }
 })
 
