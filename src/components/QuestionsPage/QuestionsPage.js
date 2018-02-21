@@ -6,7 +6,7 @@ import Table from '../Table'
 
 const QuestionsPage = ({ className }) => (
   <div className={classNames([styles.base, className])}>
-    <p>Stateless QuestionsPage Component (change me) </p>
+    <h3>Questions</h3>
     <Table />
   </div>
 )

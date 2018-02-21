@@ -7,6 +7,7 @@ const ConfigPage = ({ className, setApiEndpoint, endpoint, setAccessToken, acces
   <div className={classNames([styles.base, className])}>
     <label htmlFor='access-token-input'>API Endpoint</label>
     <input id='access-token-input' type='text' onChange={setApiEndpoint} value={endpoint} />
+    <br />
     <label htmlFor='access-token-input'>Access Token</label>
     <input id='access-token-input' type='password' onChange={setAccessToken} value={accessToken} />
   </div>
