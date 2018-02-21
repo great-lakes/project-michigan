@@ -86,13 +86,13 @@ class Table extends Component {
       id: 'student',
       accessor: d => d.student
     }, {
-      Header: 'Project',
-      id: 'project',
-      accessor: d => d.project
-    }, {
       Header: 'Contact',
       id: 'contact',
       accessor: d => d.contact
+    }, {
+      Header: 'Project',
+      id: 'project',
+      accessor: d => d.project
     }]
     return (
       <ReactTable

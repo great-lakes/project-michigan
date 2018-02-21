@@ -5,6 +5,8 @@ export const SET_STUDENTS = 'SET_STUDENTS'
 export const SET_INQUIRIES = 'SET_INQUIRIES'
 export const SET_PROJECTS = 'SET_PROJECTS'
 export const SET_INQUIRY = 'SET_INQUIRY'
+export const SET_AZURE_CODES = 'SET_AZURE_CODES'
+export const SET_AZURE_CODE = 'SET_AZURE_CODE'
 // Add Action String Constant Here (do not delete this line)
 
 export const setSkills = (data) => ({
@@ -39,6 +41,16 @@ export const setProjects = (data) => ({
 
 export const setInquiry = (data) => ({
   type: SET_INQUIRY,
+  data
+})
+
+export const setAzureCodes = (data) => ({
+  type: SET_AZURE_CODES,
+  data
+})
+
+export const setAzureCode = (data) => ({
+  type: SET_AZURE_CODE,
   data
 })
 

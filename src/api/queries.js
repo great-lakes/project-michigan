@@ -8,11 +8,22 @@ mutation assignMentorToInquiry($inquiryId: ID!, $mentorId: ID!){
     created_at
     student{
       id
-      project {
-        id
-      }
     }
     mentor{
+      id
+    }
+  }
+}
+`
+
+export const takeAzurecode =
+`
+mutation takeAzurecode($azurecodeId: ID!){
+  issueAzurecodeById(id: $azurecodeId) {
+    id
+    code
+    is_taken
+    student {
       id
     }
   }
@@ -46,6 +57,14 @@ query initialHackathonData($hackathonId: ID!){
         name
       }
     }
+    azurecodes {
+      id
+      code
+      is_taken
+      student {
+        id
+      }
+    }
     inquiries {
       id
       question
@@ -53,6 +72,7 @@ query initialHackathonData($hackathonId: ID!){
       created_at
       student{
         id
+        name
         email
         project {
           id

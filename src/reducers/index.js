@@ -8,6 +8,7 @@ import skills from './skills'
 import students from './students'
 import hackathon from './hackathon'
 import projects from './projects'
+import azureCodes from './azureCodes'
 
 const rootReducer = combineReducers({
   api,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   skills,
   students,
   projects,
-  hackathon
+  hackathon,
+  azureCodes
 })
 
 export default rootReducer

@@ -28,12 +28,33 @@ export const assignMentorToInquiry = (apiConfig, inquiryId, mentorId) => {
   }
   const requestPromise = queryGraphql(apiConfig, assignMentorToInquiry, variables)
     .then(result => {
-      console.log(result.errors)
+      console.error(result.errors)
       return result.data
     })
     .then(data => {
-      console.log('data in client', data)
-      return data.setInquiryMentor
+      const inquiry = data.setInquiryMentor
+      return {
+        ...inquiry,
+        mentor: inquiry.mentor.id || null,
+        student: inquiry.student.id || null
+      }
+    })
+
+  return Observable.from(requestPromise)
+}
+
+export const takeAzurecode = (apiConfig, azurecodeId) => {
+  const {takeAzurecode} = queries
+  const variables = {
+    azurecodeId
+  }
+  const requestPromise = queryGraphql(apiConfig, takeAzurecode, variables)
+    .then(result => {
+      console.error(result.errors)
+      return result.data
+    })
+    .then(data => {
+      return data.issueAzurecodeById
     })
 
   return Observable.from(requestPromise)

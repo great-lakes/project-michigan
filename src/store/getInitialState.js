@@ -14,6 +14,7 @@ export default () => {
     mentors: {},
     projects: {},
     router: {},
-    hackathon: {}
+    hackathon: {},
+    azureCodes: {}
   }
 }

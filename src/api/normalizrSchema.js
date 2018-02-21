@@ -8,6 +8,10 @@ export const student = new Entity('student', {
   project
 })
 
+export const azurecode = new Entity('azurecode', {
+  student
+})
+
 export const skill = new Entity('skill')
 
 export const mentor = new Entity('mentor', {
@@ -22,5 +26,6 @@ export const inquiry = new Entity('inquiry', {
 export const hackathon = new Entity('hackathon', {
   mentors: [mentor],
   students: [student],
-  inquiries: [inquiry]
+  inquiries: [inquiry],
+  azurecodes: [azurecode]
 })

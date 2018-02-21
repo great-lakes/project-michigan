@@ -1,12 +1,14 @@
 import { combineEpics } from 'redux-observable'
 import getInitialHackathonData from './getInitialHackathonData'
-import startSetInquiryMentor from './startSetInquiryMentor'
+import setInquiryMentor from './setInquiryMentor'
+import takeAzureCode from './takeAzureCode'
 import appStart from './appStart'
 
 const rootEpic = combineEpics(
   appStart,
   getInitialHackathonData,
-  startSetInquiryMentor
+  setInquiryMentor,
+  takeAzureCode
 )
 
 export default rootEpic

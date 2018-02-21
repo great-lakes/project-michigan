@@ -1,7 +1,7 @@
 import {FETCH_INITIAL_HACKATHON_DATA_START, fetchInitialHackathonDataSuccess} from '../actions/fetchers'
 import {queryInitialHackathonData} from '../api/client'
 import { Observable } from 'rxjs/Observable'
-import {setHackathon, setSkills, setMentors, setStudents, setInquiries, setProjects} from '../actions/setters'
+import {setHackathon, setSkills, setMentors, setStudents, setInquiries, setProjects, setAzureCodes} from '../actions/setters'
 
 export default (action$, store) =>
   action$.ofType(FETCH_INITIAL_HACKATHON_DATA_START)
@@ -17,6 +17,7 @@ export default (action$, store) =>
             Observable.of(setStudents(data.entities.student)),
             Observable.of(setProjects(data.entities.project)),
             Observable.of(setInquiries(data.entities.inquiry)),
+            Observable.of(setAzureCodes(data.entities.azurecode))
           )
         })
     })

@@ -5,6 +5,7 @@ import TabMenu from '../TabMenu'
 import './App.css'
 import ConfigPage from '../ConfigPage'
 import QuestionsPage from '../QuestionsPage'
+import AzureCodesPage from '../AzureCodesPage'
 
 class App extends Component {
   render () {
@@ -14,7 +15,7 @@ class App extends Component {
         <Switch>
           <Route path='/questions' component={QuestionsPage} />
           <Route path='/projects' component={Placeholder} />
-          <Route path='/azureCodes' component={Placeholder} />
+          <Route path='/azureCodes' component={AzureCodesPage} />
           <Route path='/mentors' component={Placeholder} />
           <Route path='/config' component={ConfigPage} />
         </Switch>
