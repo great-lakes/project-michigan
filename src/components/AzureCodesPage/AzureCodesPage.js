@@ -10,6 +10,7 @@ const AzureCodesPage = ({ className, azureCodes, takeAzureCode }) => (
   <div className={classNames([styles.base, className])}>
     <h3>Azure Codes</h3>
     <ReactTable
+      filterable
       data={azureCodes}
       columns={[
         {
@@ -32,6 +33,7 @@ const AzureCodesPage = ({ className, azureCodes, takeAzureCode }) => (
         },
         {
           Header: 'Actions',
+          filterable: false,
           Cell: d => {
             const taken = d.original.is_taken
             if (taken) {
@@ -43,7 +45,7 @@ const AzureCodesPage = ({ className, azureCodes, takeAzureCode }) => (
         },
         {
           Header: 'Student',
-          accessor: 'student'
+          accessor: 'student.email'
         }
       ]}
       defaultPageSize={10}

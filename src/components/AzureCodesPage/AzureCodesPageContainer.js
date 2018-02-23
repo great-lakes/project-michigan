@@ -5,10 +5,13 @@ import { fetchTakeAzureCodeStart } from '../../actions/fetchers'
 const mapStateToProps = (state) => {
   const azureCodes = Object.keys(state.hackathon.azurecodes || {})
     .map((id) => {
-      return state.azureCodes[id]
+      const azureCode = state.azureCodes[id]
+      if (azureCode && azureCode.student) {
+        azureCode.student = state.students[azureCode.student]
+      }
+      return azureCode
     })
     .filter(_ => _)
-
   return {
     azureCodes
   }
